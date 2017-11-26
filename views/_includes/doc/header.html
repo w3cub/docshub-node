@@ -1,0 +1,22 @@
+<header class="_header">
+  {% if disablesearch !=  true %}
+  <form class="_search">
+    <input type="search" class="_search-input" placeholder="Search&hellip;" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="20">
+    <a class="_search-clear"></a>
+    <div class="_search-tag"></div>
+  </form>
+  {%endif %}
+  <a class="_home-link" href="/" ></a>
+  <a class="_menu-link"></a>
+  <h1 class="_logo">
+    <a href="/" class="_nav-link" title="API Documentation Browser">W3cubDocs</a>
+  </h1>
+  {%if page.slug %}
+  <span class="_logo-sub-nav">/</span><span class="_logo-sub-nav"><a href="/{{page.slug}}/" class="_nav-link" title="" style="margin-left:0;">{{page.slugTitle}}</a></span>
+  {%endif%}
+  <nav class="_nav">
+    <a href="http://site.w3cub.com/" class="_nav-link {% if page.url == '/app/' %} _nav-current{% endif %}">Site</a>
+    <a href="/app/" class="_nav-link {% if page.url == '/app/' %} _nav-current{% endif %}">App</a>
+    <a href="/about/" class="_nav-link {% if page.url == '/about/' %} _nav-current{% endif %}">About</a>
+  </nav>
+</header>

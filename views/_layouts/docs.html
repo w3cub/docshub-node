@@ -1,0 +1,27 @@
+{% include 'head.html' %}
+<body>
+	<div class="_app">
+	{% include 'doc/header.html' %}
+	<section class="_sidebar">
+		<div class="_list">
+
+		</div>
+	</section>
+	<section class="_container ">
+		<div class="_content">
+      {%if page.type%}
+			<div class="_page _{{page.type}}">
+				{% block %}{% endblock %}
+      </div>
+      {%else%}
+        {% block %}{% endblock %}
+      {%endif%}
+		</div>
+	</section>
+
+	</div>
+	<svg style="display:none">
+		<symbol id="dir-icon"><svg viewBox="0 0 20 20"><path d="M15 10c0 .3-.305.515-.305.515l-8.56 5.303c-.625.41-1.135.106-1.135-.67V4.853c0-.777.51-1.078 1.135-.67l8.56 5.305S15 9.702 15 10z"/></svg></symbol>
+	  </svg>
+</body>
+</html>

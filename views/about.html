@@ -1,0 +1,49 @@
+{% layout 'layout.html' %}
+
+<section class="_container">
+    <div class="_content">
+        <div class="_static">
+            <div class="_toc">
+                <h3 class="_toc-title">Table of Contents</h3>
+                <ul class="_toc-list">
+                    <li><a href="#credits">Credits</a>
+                    </li>
+                    <li><a href="#copyright">Copyright</a>
+                    </li>
+                </ul>
+            </div>
+            <h1 class="_lined-heading">API Documentation Browser</h1>
+            <p>W3cubDocs combines multiple API documentations in a fast, organized, and searchable interface. This project is based on <a href="https://github.com/Thibaut/devdocs">open source</a><iframe class="_github-btn" src="https://ghbtns.com/github-btn.html?user=Thibaut&amp;repo=devdocs&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>. we use jekyll system to rewrite this and hosted on Github Pages service.</p>
+            <p>This project is also an <a href="https://github.com/icai/docshub">open source</a><iframe class="_github-btn" src="https://ghbtns.com/github-btn.html?user=icai&amp;repo=docshub&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="20"></iframe>, the mainly issue is that jekyll generator is <a href="https://github.com/jekyll/jekyll/issues/560" target="_blank">too slow</a>(<a href="https://github.com/jekyll/jekyll/issues/1855" target="_blank" >another issue</a>) to generate, may using asynchronous task to generate is better. After that I will try to write a jekyll generator using ruby or javascript.</p>
+
+            <p>This anothor project (docshub-node) is also an <a href="https://github.com/icai/docshub-node">open source</a><iframe class="_github-btn" src="https://ghbtns.com/github-btn.html?user=icai&amp;repo=docshub-node&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90" height="20"></iframe>.</p>
+
+            <p>Current project <a href="http://docs.w3cub.com/" data-mce-href="http://docs.w3cub.com/">W3cubDocs</a>, I must update it carefully, due to the Github project size limit. if sometime you can not view <a href="http://docs.w3cub.com" data-mce-href="http://docs.w3cub.com">current website</a>, may be <em>updating</em> or some other reasons. you can check the <a href="https://devdocs.io" data-mce-href="https://devdocs.io">devdocs</a> project.</p>
+            <h2 class="_lined-heading" id="credits">Credits</h2>
+            <table class="_credits">
+                <tbody>
+                    <tr>
+                        <th>Documentation
+                        </th>
+                        <th>Copyright
+                        </th>
+                        <th>License
+                        </th>
+                    </tr>
+                    {%for c in credits %}
+                    <tr>
+                        <td>{{c[0]}}</td>
+                        <td>{{c[1]}}</td>
+                        <td><a href="{{c[3]}}">{{c[2]}}</a></td>
+                    </tr>
+                    {%endfor %}
+
+                </tbody>
+            </table>
+            <h2 class="_lined-heading" id="copyright">Copyright and License</h2>
+            <p class="_note">
+                This software is licensed under the terms of the MIT.
+            </p>
+        </div>
+    </div>
+</section>

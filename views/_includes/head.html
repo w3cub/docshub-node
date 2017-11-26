@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+{% if site.lang %}
+<html lang="{{ site.lang }}">
+{% else %}
+<html>
+{% endif %}
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.url == "/" %}{{page.title}}{% else %}{% if page.title %}{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %} - {% endif %}{{ site.title }}{% endif %}</title>
+  {% capture description %}
+    {% if page.url == "/" %} {{ site.description }}
+    {% elsif page.description %}{{ page.description }}
+    {% else %}{{ content | raw_content }}
+    {% endif %}
+  {% endcapture %}
+  <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta property="og:title" content="{{site.title}}">
+  <meta property="og:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://docs.w3cub.com">
+  <meta property="og:image" content="https://avatars1.githubusercontent.com/u/24860109?s=200&v=4">
+  <meta name="apple-mobile-web-app-title" content="{{site.title}}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#f0f0f0">
+  <link rel="canonical" href="{{ canonical }}">
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  {% if base%} {{base}} {%endif%}
+  {% stylesheet 'application.css' %}
+  {% javascript 'application.js' %}
+  {%if json%} {{json}} {%endif%}
+  {%if page.slug %}<script src="{{root_url}}/json/{{page.digestPath}}.js"></script>{%endif %}
+  {% include 'google_analytics.html' %}
+</head>

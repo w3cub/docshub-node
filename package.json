@@ -1,0 +1,54 @@
+{
+  "name": "docshub-node",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "manifest": "node manifest.js"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@controllers": "./controllers",
+    "@models": "./models",
+    "@utils": "./utils"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "node_modules/*",
+      "public/*"
+    ],
+    "delay": "2500"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "body-parser": "~1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "coffee-middleware": "^0.3.0",
+    "compass-importer": "^0.4.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "liquidjs": "^2.0.2",
+    "lodash": "^4.17.4",
+    "mincer": "^1.5.1",
+    "module-alias": "^2.0.3",
+    "morgan": "~1.9.0",
+    "node-sass": "^4.6.1",
+    "node-sass-asset-functions": "^0.1.0",
+    "node-sass-middleware": "0.9.8",
+    "serve-favicon": "~2.4.5",
+    "twig": "~0.10.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "nodemon": "^1.12.1"
+  }
+}

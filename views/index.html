@@ -1,0 +1,36 @@
+{% layout 'layout.html' %}
+<style type="text/css" media="screen">
+	@media(max-width: 480px){
+		.index-page ._container ._list{
+		    display: flex;
+			flex-wrap: wrap;
+			margin-left: 0.5rem;
+    		margin-right: 0.5rem;
+    		width: auto;
+		}
+		.index-page ._container ._list ._list-item{
+    		box-sizing: border-box;
+			width: 25%;
+    		height: auto;
+		}
+		.index-page ._container ._list ._list-item .name {
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		    margin-left: -.5rem;
+		    margin-right: -.5rem;
+		}
+	}
+</style>
+<section class="_container index">
+	<div class="_content">
+	  <div class="_list">
+	    {% for link in docs %}
+        <a href="/{{link.slug}}/" class="_list-item _icon-{{link.slug | split: '~' | first }} _list-dir" title="">
+          <img src="/images/docs/{{link.slug | split: '~' | first }}.png" alt=""><span class="name">{{link.name}}{%if link.version %}{%if link.version != '' %}~{{link.version}}{%endif%}{%endif%}
+        </span></a>
+	    {% endfor %}
+    </div>
+	</div>
+</section>
+

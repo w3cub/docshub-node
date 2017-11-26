@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+public/assets
+
+# doc file cache
+.cache-files
