@@ -5,8 +5,8 @@ module.exports = {
     ]
   },
   docs: {
-    path: '../docsw3/devdocs/public/docs/docs.json',
-    dir: '../docsw3/devdocs/public/docs/'
+    path: '../docshub/devdocs/public/docs/docs.json',
+    dir: '../docshub/devdocs/public/docs/'
   },
   site: {
     title: 'W3cubDocs',

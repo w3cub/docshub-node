@@ -23,14 +23,14 @@
     "delay": "2500"
   },
   "dependencies": {
-    "autoprefixer": "^7.1.6",
-    "body-parser": "~1.18.2",
-    "cheerio": "^1.0.0-rc.2",
+    "autoprefixer": "^9.5.1",
+    "body-parser": "~1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "coffee-middleware": "^0.3.0",
     "compass-importer": "^0.4.1",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
+    "debug": "~4.1.1",
+    "express": "~4.17.1",
     "liquidjs": "^2.0.2",
     "lodash": "^4.17.4",
     "mincer": "^1.5.1",
@@ -43,12 +43,12 @@
     "twig": "~0.10.3"
   },
   "devDependencies": {
-    "eslint": "^4.11.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "nodemon": "^1.12.1"
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.19.1"
   }
 }
