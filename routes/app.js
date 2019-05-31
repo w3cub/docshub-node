@@ -53,17 +53,17 @@ module.exports = function (engine) {
       var isIndex = req.params[0] === '';
       var file = models.docsfile(slug, isIndex, req.params[0]);
       if (file) {
-        var parsed = models.parseFile(file.content, file.filePath, isIndex, slug)
-        var str = wrapFileWithDocsLayout(parsed.content);
-        var tpl = engine.parse(str);
-        let cfile = await fileCache.read(slug);
+        let cfile = await fileCache.read(file.filePath);
         if (cfile) {
           res.send(cfile);
         } else {
+          var parsed = models.parseFile(file.content, file.filePath, isIndex, slug)
+          var str = wrapFileWithDocsLayout(parsed.content);
+          var tpl = engine.parse(str);
           engine
             .render(tpl, models.fileData(slug, parsed))
             .then(function (html) {
-              fileCache.write(slug, html);
+              fileCache.write(file.filePath, html);
               res.send(html);
             });
         }
