@@ -51,7 +51,7 @@ npm run dev
 ```
 
 ## Todo
-- [ ] cache render
+- [x] cache render
 - [ ] database manage
 - [ ] user center
 - [ ] read count
