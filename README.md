@@ -69,4 +69,4 @@ https://github.com/nodeca/mincer
 
 ## License
 
-Copyright (c) 2017 Terry Cai. Licensed under the MIT license.
+Copyright (c) Terry Cai. Licensed under the MIT license.
