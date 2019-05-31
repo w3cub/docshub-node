@@ -25,6 +25,7 @@
   "dependencies": {
     "autoprefixer": "^9.5.1",
     "body-parser": "~1.19.0",
+    "cacache": "^11.3.2",
     "cheerio": "^1.0.0-rc.3",
     "coffee-middleware": "^0.3.0",
     "compass-importer": "^0.4.1",
@@ -36,6 +37,7 @@
     "mincer": "^1.5.1",
     "module-alias": "^2.0.3",
     "morgan": "~1.9.0",
+    "node-caches": "^1.0.0",
     "node-sass": "^4.6.1",
     "node-sass-asset-functions": "^0.1.0",
     "node-sass-middleware": "0.9.8",

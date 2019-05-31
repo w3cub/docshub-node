@@ -61,3 +61,5 @@ public/assets
 
 # doc file cache
 .cache-files
+
+.cache

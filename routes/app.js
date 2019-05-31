@@ -1,6 +1,8 @@
 
 var express = require('express');
 var models = require('@models/index');
+const ncache = require('node-caches');
+const path = require('path');
 
 var resolveMiddle = function (arr) {
   var routes = [];
@@ -13,9 +15,9 @@ var resolveMiddle = function (arr) {
 }
 
 var ordFile = function (file) {
-  return file.replace(/[%]/g, ((m) => {
+  return file.replace(/[%]/g, (m) => {
     return '&#' + m.charCodeAt() + ';'
-  }))
+  })
 }
 
 var wrapFileWithDocsLayout = function (file) {
@@ -24,6 +26,12 @@ var wrapFileWithDocsLayout = function (file) {
 }
 
 module.exports = function (engine) {
+  const fileCache = ncache.config({
+    store: 'file',
+    options: {
+      path: path.resolve(__dirname, '.cache')
+    }
+  })
   var routers = [
     ['/', function (req, res, next) {
       var data = models.index();
@@ -40,7 +48,7 @@ module.exports = function (engine) {
     ['/json/:slug-:hash', function (req, res, next) {
       models.docsJson(req.params, req, res, next);
     }],
-    ['/:slug*', function (req, res, next) {
+    ['/:slug*', async function (req, res, next) {
       var slug = req.params.slug;
       var isIndex = req.params[0] === '';
       var file = models.docsfile(slug, isIndex, req.params[0]);
@@ -48,12 +56,17 @@ module.exports = function (engine) {
         var parsed = models.parseFile(file.content, file.filePath, isIndex, slug)
         var str = wrapFileWithDocsLayout(parsed.content);
         var tpl = engine.parse(str);
-        // @todo cache file
-        engine
-          .render(tpl, models.fileData(slug, parsed))
-          .then(function (html) {
-            res.send(html);
-          });
+        let cfile = await fileCache.read(slug);
+        if (cfile) {
+          res.send(cfile);
+        } else {
+          engine
+            .render(tpl, models.fileData(slug, parsed))
+            .then(function (html) {
+              fileCache.write(slug, html);
+              res.send(html);
+            });
+        }
       } else {
         next();
       }
